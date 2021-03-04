@@ -1,27 +1,31 @@
 import flask
-from flask import request
-from flask import jsonify
+import flask_cors
+from flask_cors import CORS
+from flask import request, jsonify, Response, make_response
+
 
 app = flask.Flask(__name__)
-
+CORS(app)
 app.config['DEBUG'] = True
 
-@app.route('/',methods=['GET'])
+
+@app.route('/', methods=['GET'])
 def root():
     return "Hola mundo!"
 
-@app.route('/Home',methods=['GET'])
+
+@app.route('/Home', methods=['GET'])
 def Home():
     return "Hola Home!"
 
-@app.route('/Login',methods=['GET'])
+
+@app.route('/Login', methods=['POST'])
 def Login():
-    persona = request.args.get('usuario')
-    clave = request.args.get('clave')
-    if persona == 'usuario' and clave == 'clave':
-        return "Bienvenido usuario"
+    content = request.json
+    if content['usuario'] == 'Yeison' and content['clave'] == '123456':
+        return Response("Usuario y clave correctos", status=200)
     else:
-        return "Revisar credenciales"
+        return Response("Verifica las credenciales", status=401)
 
 
 app.run()
