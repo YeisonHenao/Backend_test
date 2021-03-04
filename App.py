@@ -22,7 +22,7 @@ def Home():
 @app.route('/Login', methods=['POST'])
 def Login():
     content = request.json
-    if content['usuario'] == 'Yeison' and content['clave'] == '123456':
+    if content['usuario'] == 'usuario' and content['clave'] == '123456':
         return Response("Usuario y clave correctos", status=200)
     else:
         return Response("Verifica las credenciales", status=401)
