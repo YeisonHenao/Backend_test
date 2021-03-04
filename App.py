@@ -18,7 +18,7 @@ def Home():
 def Login():
     persona = request.args.get('usuario')
     clave = request.args.get('clave')
-    if persona == 'Yeison' and clave == '123456':
+    if persona == 'usuario' and clave == 'clave':
         return "Bienvenido Yeison"
     else:
         return "Revisar credenciales"
