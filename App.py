@@ -19,7 +19,7 @@ def Login():
     persona = request.args.get('usuario')
     clave = request.args.get('clave')
     if persona == 'usuario' and clave == 'clave':
-        return "Bienvenido Yeison"
+        return "Bienvenido usuario"
     else:
         return "Revisar credenciales"
 
